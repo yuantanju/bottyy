@@ -139,7 +139,7 @@
       0%, 100% {
         box-shadow: 0 0 8px 2px #00cc44aa;
       }
-      50 {
+      50% {
         box-shadow: 0 0 16px 4px #00cc44dd;
       }
     }
@@ -213,7 +213,6 @@
     </button>
 
     <button class="enter-button" id="enterButton" disabled>🔞 ENTER ATABS ROOM 🔓</button>
-    <button class="enter-button" id="backupButton" disabled>🔞 ENTER BACKUP CHANNEL 🔓</button>
 
     <div id="message" role="alert" aria-live="assertive" aria-atomic="true"></div>
   </div>
@@ -226,7 +225,6 @@
 
     const shareButton = document.getElementById('shareButton');
     const enterButton = document.getElementById('enterButton');
-    const backupButton = document.getElementById('backupButton');
     const shareCountText = document.getElementById('shareCount');
     const progressBar = document.getElementById('progressBar');
     const message = document.getElementById('message');
@@ -240,16 +238,12 @@
       if (shareCount >= totalShares) {
         shareButton.disabled = true;
         enterButton.disabled = false;
-        backupButton.disabled = false;
         enterButton.classList.add('unlocked');
-        backupButton.classList.add('unlocked');
         message.textContent = '';
       } else {
         shareButton.disabled = false;
         enterButton.disabled = true;
-        backupButton.disabled = true;
         enterButton.classList.remove('unlocked');
-        backupButton.classList.remove('unlocked');
         message.textContent = '';
       }
     }
@@ -288,12 +282,6 @@
     enterButton.addEventListener('click', () => {
       if (shareCount >= totalShares) {
         window.location.href = 'https://t.me/addlist/Lztmt92Gokg4NTZl'; // Main channel
-      }
-    });
-
-    backupButton.addEventListener('click', () => {
-      if (shareCount >= totalShares) {
-        window.location.href = 'https://t.me/+qw0TFKfNwcoxMjdl'; // Replace with actual backup channel
       }
     });
 
